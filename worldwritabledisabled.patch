@@ -1,0 +1,12 @@
+diff -urNp vendor/symfony/runtime/GenericRuntime.php.orig vendor/symfony/runtime/GenericRuntime.php
+--- vendor/symfony/runtime/GenericRuntime.php.orig	2023-01-13 04:02:34.828549046 +0100
++++ vendor/symfony/runtime/GenericRuntime.php	2023-01-13 04:02:39.328567501 +0100
+@@ -69,7 +69,7 @@ class GenericRuntime implements RuntimeI
+         }
+ 
+         if ($debug) {
+-            umask(0000);
++            umask(0022);
+             $_SERVER[$debugKey] = $_ENV[$debugKey] = '1';
+ 
+             if (false !== $errorHandler = ($options['error_handler'] ?? BasicErrorHandler::class)) {
