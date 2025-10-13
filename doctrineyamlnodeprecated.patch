@@ -1,16 +1,38 @@
-diff -urNp vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php.orig vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php
---- vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php.orig	2024-02-25 05:47:06.324654842 +0100
-+++ vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php	2024-02-25 05:47:54.465093551 +0100
-@@ -29,8 +29,6 @@ use function substr;
+diff -urNp vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php.orig vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php
+--- vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php.orig	2025-10-13 13:59:47.021209744 +0200
++++ vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php	2025-10-13 14:00:48.361746037 +0200
+@@ -8,10 +8,6 @@ use Doctrine\Persistence\Mapping\Driver\
  
  /**
-  * The YamlDriver reads the mapping metadata from yaml schema files.
+  * YamlDriver that additionally looks for mapping information in a global file.
 - *
+- * @deprecated This class is being removed from the ORM and won't have any replacement
+- *
+- * @phpstan-ignore class.extendsDeprecatedClass
+  */
+ class SimplifiedYamlDriver extends YamlDriver
+ {
+diff -urNp vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php.orig vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php
+--- vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php.orig	2025-08-08 08:55:44.000000000 +0200
++++ vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php	2025-10-13 14:03:31.603173203 +0200
+@@ -4,7 +4,6 @@ declare(strict_types=1);
+ 
+ namespace Doctrine\ORM\Mapping\Driver;
+ 
+-use Doctrine\Deprecations\Deprecation;
+ use Doctrine\ORM\Mapping\Builder\EntityListenerBuilder;
+ use Doctrine\ORM\Mapping\ClassMetadata;
+ use Doctrine\ORM\Mapping\MappingException;
+@@ -30,8 +29,6 @@ use function substr;
+ /**
+  * The YamlDriver reads the mapping metadata from yaml schema files.
+  *
 - * @deprecated 2.7 This class is being removed from the ORM and won't have any replacement
+- *
+  * @template-extends FileDriver<array<string, mixed>>
   */
  class YamlDriver extends FileDriver
- {
-@@ -41,12 +39,6 @@ class YamlDriver extends FileDriver
+@@ -43,12 +40,6 @@ class YamlDriver extends FileDriver
       */
      public function __construct($locator, $fileExtension = self::DEFAULT_FILE_EXTENSION)
      {
@@ -23,15 +45,3 @@ diff -urNp vendor/doctrine/orm/src/Mapping/Driver/YamlDriver.php.orig vendor/doc
          if (! class_exists(Yaml::class)) {
              throw new LogicException(
                  'The YAML metadata driver cannot be enabled because the "symfony/yaml" library'
-diff -urNp vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php.orig vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php
---- vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php.orig	2024-02-25 05:49:56.756207941 +0100
-+++ vendor/doctrine/orm/src/Mapping/Driver/SimplifiedYamlDriver.php	2024-02-25 05:50:09.556324582 +0100
-@@ -8,8 +8,6 @@ use Doctrine\Persistence\Mapping\Driver\
- 
- /**
-  * YamlDriver that additionally looks for mapping information in a global file.
-- *
-- * @deprecated This class is being removed from the ORM and won't have any replacement
-  */
- class SimplifiedYamlDriver extends YamlDriver
- {
