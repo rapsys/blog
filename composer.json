@@ -132,7 +132,7 @@
                 },
                 "require": {
                     "doctrine/doctrine-bundle": "^2.0",
-                    "doctrine/orm": "^3.0",
+                    "doctrine/orm": "^2.0",
                     "erusev/parsedown": "^1.0|^2.0",
                     "rapsys/packbundle": "dev-master",
                     "rapsys/userbundle": "dev-master",
