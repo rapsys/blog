@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a3802023a32a3afdda350c1af245f42",
+    "content-hash": "4b08b52ce89c0ee9d086736fbeef7bc6",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -1926,8 +1926,8 @@
                 "reference": "master"
             },
             "require": {
-                "doctrine/doctrine-bundle": "^3.4",
-                "doctrine/orm": "^3.8",
+                "doctrine/doctrine-bundle": "^3.0",
+                "doctrine/orm": "^3.0",
                 "erusev/parsedown": "^1.0|^2.0",
                 "rapsys/packbundle": "dev-master",
                 "rapsys/userbundle": "dev-master",
@@ -1944,7 +1944,7 @@
                 "twig/intl-extra": "^3.0"
             },
             "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "^4.3",
+                "doctrine/doctrine-fixtures-bundle": "^4.0",
                 "symfony/browser-kit": "^7.0|^8.0",
                 "symfony/maker-bundle": "^1.0",
                 "symfony/phpunit-bridge": "^7.0|^8.0",
@@ -1988,7 +1988,7 @@
                 "reference": "master"
             },
             "require": {
-                "doctrine/doctrine-bundle": "^3.4",
+                "doctrine/doctrine-bundle": "^3.0",
                 "rapsys/packbundle": "dev-master",
                 "symfony/flex": "^2.0",
                 "symfony/form": "^7.0|^8.0",
@@ -10687,7 +10687,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.4",
+        "php": ">=8.4.1",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
